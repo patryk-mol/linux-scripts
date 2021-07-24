@@ -1,7 +1,7 @@
 #!/bin/zsh
 
-apt update
-apt upgrade -y
-apt autoremove -y
+sudo apt update
+sudo apt upgrade -y
+sudo apt autoremove -y
 flatpak update
 snap refresh
