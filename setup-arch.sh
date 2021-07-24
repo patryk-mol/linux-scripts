@@ -50,7 +50,8 @@ pacman -Syu \
  optimus-manager
 fi
 
-yay -Syu gzdoom
+yay -Syu gzdoom \
+ vscodium-bin
 
 #Install Sublime Text
 curl -O https://download.sublimetext.com/sublimehq-pub.gpg && pacman-key --add sublimehq-pub.gpg && pacman-key --lsign-key 8A8F901A && rm sublimehq-pub.gpg
