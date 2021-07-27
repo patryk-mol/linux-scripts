@@ -39,6 +39,9 @@ pacman -Syu \
  zsh \
  zsh-completions \
  zsh-syntax-highlighting \
+ xterm \
+ xdg-utils \
+ xarchiver
 
 #laptop
 if [ $1 =z "laptop" ] then
