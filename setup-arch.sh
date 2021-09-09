@@ -41,7 +41,18 @@ pacman -Syu \
  zsh-syntax-highlighting \
  xterm \
  xdg-utils \
- xarchiver
+ xarchiver \
+ simple-scan \
+ sane-airscan \
+ bat \
+ bottom \
+ ripgrep \
+ git-delta \
+ procs \
+ bandwhich \
+ tealdeer \
+ rust \
+ neovim
 
 #laptop
 if [ $1 =z "laptop" ] then
@@ -53,19 +64,17 @@ pacman -Syu \
  optimus-manager
 fi
 
+cargo install paper-terminal
+
 yay -Syu gzdoom \
- vscodium-bin
+ vscodium-bin \
+ meteo-gtk \
+ pamac-aur
 
 #Install Sublime Text
 curl -O https://download.sublimetext.com/sublimehq-pub.gpg && pacman-key --add sublimehq-pub.gpg && pacman-key --lsign-key 8A8F901A && rm sublimehq-pub.gpg
 echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/x86_64" | tee -a /etc/pacman.conf
 pacman -Syu sublime-text
-
-#Oh my zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-yay -S --noconfirm zsh-theme-powerlevel10k-git
-p10k configure
-chsh -s /bin/zsh
 
 #qemu setup
 systemctl enable libvirtd.service
@@ -80,3 +89,11 @@ systemctl restart libvirtd.service
 modprobe -r kvm_intel
 modprobe kvm_intel nested=1
 echo "options kvm-intel nested=1" | tee /etc/modprobe.d/kvm-intel.conf
+
+#Enable CUPS
+systemctl enable cups.service
+systemctl start cups.service
+
+#Cheat.sh
+curl https://cht.sh/:cht.sh | sudo tee /usr/local/bin/cht.sh
+chmod +x /usr/local/bin/cht.sh
