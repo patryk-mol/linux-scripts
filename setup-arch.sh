@@ -20,10 +20,11 @@ pacman -Syu \
  cmatrix \
  filezilla \
  firefox \
- thunderbird \
+ mailspring \
  gnome-calendar \
  vlc \
  lxsession \
+ lxappearance \
  trayer \
  volumeicon \
  dunst \
@@ -37,7 +38,7 @@ pacman -Syu \
  xmonad-log \
  xmonad-utils \
  zsh \
- zsh-completions \
+ zsh-autosuggestions \
  zsh-syntax-highlighting \
  xterm \
  xdg-utils \
@@ -55,13 +56,12 @@ pacman -Syu \
  neovim
 
 #laptop
-if [ $1 =z "laptop" ] then
+if [ $1 =z "laptop" ]; then
 pacman -Syu \
  cbatticon \
  tlp \
  blueberry \
- xfce4-power-manager \
- optimus-manager
+ xfce4-power-manager
 fi
 
 cargo install paper-terminal
@@ -69,12 +69,7 @@ cargo install paper-terminal
 yay -Syu gzdoom \
  vscodium-bin \
  meteo-gtk \
- pamac-aur
-
-#Install Sublime Text
-curl -O https://download.sublimetext.com/sublimehq-pub.gpg && pacman-key --add sublimehq-pub.gpg && pacman-key --lsign-key 8A8F901A && rm sublimehq-pub.gpg
-echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/x86_64" | tee -a /etc/pacman.conf
-pacman -Syu sublime-text
+ nerd-fonts-fira-code
 
 #qemu setup
 systemctl enable libvirtd.service
@@ -96,4 +91,4 @@ systemctl start cups.service
 
 #Cheat.sh
 curl https://cht.sh/:cht.sh | sudo tee /usr/local/bin/cht.sh
-chmod +x /usr/local/bin/cht.sh
+sudo chmod +x /usr/local/bin/cht.sh
