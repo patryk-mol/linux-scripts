@@ -2,7 +2,7 @@
 
 sudo pacman -Syu
 sudo pacman -R $(pacman -Qdtq)
-yay -Syu
-yay -R $(yay -Qdtq)
+paru -Syu
+paru -R $(paru -Qdtq)
 flatpak update
 sudo snap refresh

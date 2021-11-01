@@ -4,8 +4,6 @@ pacman -Syu
 pacman -R $(pacman -Qdtq)
 pacman -Syu \
  xorg \
- lightdm \
- lightdm-gtk-greeter-settings \
  thunar \
  thunar-volman \
  evince \
@@ -19,24 +17,26 @@ pacman -Syu \
  mc \
  cmatrix \
  filezilla \
+ brave \
  firefox \
  mailspring \
  gnome-calendar \
  vlc \
  lxsession \
  lxappearance \
- trayer \
  volumeicon \
- dunst \
  exa \
  qemu \
  virt-manager \
  xdotool \
- xmobar \
- xmonad \
- xmonad-contrib \
- xmonad-log \
- xmonad-utils \
+ qtile \
+ alsa-utils \
+ libpulse \
+ lm_sensors \
+ python-dbus-next \
+ python-iwlib \
+ python-pyxdg \
+ python-psutil \
  zsh \
  zsh-autosuggestions \
  zsh-syntax-highlighting \
@@ -58,18 +58,17 @@ pacman -Syu \
 #laptop
 if [ $1 =z "laptop" ]; then
 pacman -Syu \
- cbatticon \
  tlp \
- blueberry \
  xfce4-power-manager
 fi
 
 cargo install paper-terminal
 
-yay -Syu gzdoom \
+paru -Syu gzdoom \
  vscodium-bin \
  meteo-gtk \
- nerd-fonts-fira-code
+ nerd-fonts-fira-code \
+ deadd-notification-center-bin
 
 #qemu setup
 systemctl enable libvirtd.service
