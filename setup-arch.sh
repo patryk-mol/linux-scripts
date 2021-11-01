@@ -91,3 +91,6 @@ systemctl start cups.service
 #Cheat.sh
 curl https://cht.sh/:cht.sh | sudo tee /usr/local/bin/cht.sh
 sudo chmod +x /usr/local/bin/cht.sh
+
+#Change default shell
+chsh -s /usr/bin/zsh
