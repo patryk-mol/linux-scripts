@@ -1,4 +1,4 @@
-!#/bin/sh
+#!/bin/sh
 
 # Upgrade everythings
 apt update
