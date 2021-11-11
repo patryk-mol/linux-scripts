@@ -1,8 +1,8 @@
 #!/bin/sh
 
-pacman -Syu
-pacman -R $(pacman -Qdtq)
-pacman -Syu \
+sudo pacman -Syu
+sudo pacman -R $(pacman -Qdtq)
+sudo pacman -Syu \
  xorg \
  thunar \
  thunar-volman \
@@ -58,14 +58,14 @@ pacman -Syu \
 
 #laptop
 if [ $1 =z "laptop" ]; then
-pacman -Syu \
+sudo pacman -Syu \
  tlp \
  xfce4-power-manager
 fi
 
 cargo install paper-terminal
 
-paru -Syu gzdoom \
+sudo paru -Syu gzdoom \
  vscodium-bin \
  meteo-gtk \
  nerd-fonts-fira-code \
@@ -75,22 +75,22 @@ paru -Syu gzdoom \
 chsh -s /usr/bin/zsh
 
 #qemu setup
-systemctl enable libvirtd.service
-systemctl start libvirtd.service
-echo "unix_sock_group = \"libvirt\"" >> /etc/libvirt/libvirtd.conf
-echo "unix_sock_rw_perms = \"0770\"" >> /etc/libvirt/libvirtd.conf
-usermod -a -G libvirt $(whoami)
-newgrp libvirt
-systemctl restart libvirtd.service
+sudo systemctl enable libvirtd.service
+sudo systemctl start libvirtd.service
+sudo echo "unix_sock_group = \"libvirt\"" >> /etc/libvirt/libvirtd.conf
+sudo echo "unix_sock_rw_perms = \"0770\"" >> /etc/libvirt/libvirtd.conf
+sudo usermod -a -G libvirt $(whoami)
+sudo newgrp libvirt
+sudo systemctl restart libvirtd.service
 
 #Enable nested virtualization
-modprobe -r kvm_intel
-modprobe kvm_intel nested=1
-echo "options kvm-intel nested=1" | tee /etc/modprobe.d/kvm-intel.conf
+sudo modprobe -r kvm_intel
+sudo modprobe kvm_intel nested=1
+sudo echo "options kvm-intel nested=1" | tee /etc/modprobe.d/kvm-intel.conf
 
 #Enable CUPS
-systemctl enable cups.service
-systemctl start cups.service
+sudo systemctl enable cups.service
+sudo systemctl start cups.service
 
 #Cheat.sh
 curl https://cht.sh/:cht.sh | sudo tee /usr/local/bin/cht.sh
