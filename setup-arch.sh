@@ -24,7 +24,6 @@ sudo pacman -Syu \
  vlc \
  lxsession \
  lxappearance \
- volumeicon \
  exa \
  qemu \
  virt-manager \
@@ -54,7 +53,11 @@ sudo pacman -Syu \
  tealdeer \
  rust \
  neovim \
- bitwarden-bin
+ bitwarden-bin \
+ xf86-video-intel \
+ intel-media-driver \
+ libva-utils \
+ vdpauinfo
 
 #laptop
 if [ $1 =z "laptop" ]; then
@@ -95,8 +98,3 @@ sudo systemctl start cups.service
 #Cheat.sh
 curl https://cht.sh/:cht.sh | sudo tee /usr/local/bin/cht.sh
 sudo chmod +x /usr/local/bin/cht.sh
-
-#Sublime Text setup
-curl -O https://download.sublimetext.com/sublimehq-pub.gpg && sudo pacman-key --add sublimehq-pub.gpg && sudo pacman-key --lsign-key 8A8F901A && rm sublimehq-pub.gpg
-echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/x86_64" | sudo tee -a /etc/pacman.conf
-sudo pacman -Syu sublime-text
