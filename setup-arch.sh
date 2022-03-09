@@ -43,7 +43,6 @@ sudo pacman -Syu \
  xdg-utils \
  xarchiver \
  simple-scan \
- sane-airscan \
  bat \
  bottom \
  ripgrep \
@@ -53,17 +52,22 @@ sudo pacman -Syu \
  tealdeer \
  rust \
  neovim \
- bitwarden-bin \
+ bitwarden \
  xf86-video-intel \
  intel-media-driver \
  libva-utils \
- vdpauinfo
+ vdpauinfo \
+ ttf-font-awesome \
+ otf-font-awesome \
+ docker \
+ tlp \
+ xfce4-power-manager \
 
-#laptop
+# Laptop
 if [ $1 =z "laptop" ]; then
 sudo pacman -Syu \
- tlp \
- xfce4-power-manager
+ networkmanager-l2tp \
+ strongswan
 fi
 
 cargo install paper-terminal
@@ -71,13 +75,14 @@ cargo install paper-terminal
 sudo paru -Syu gzdoom \
  vscodium-bin \
  meteo-gtk \
- nerd-fonts-fira-code \
- deadd-notification-center-bin
+ deadd-notification-center-bin \
+ nerd-fonts-complete \
 
-#Change default shell
+
+# Change default shell
 chsh -s /usr/bin/zsh
 
-#qemu setup
+# qemu setup
 sudo systemctl enable libvirtd.service
 sudo systemctl start libvirtd.service
 sudo echo "unix_sock_group = \"libvirt\"" >> /etc/libvirt/libvirtd.conf
@@ -86,15 +91,18 @@ sudo usermod -a -G libvirt $(whoami)
 sudo newgrp libvirt
 sudo systemctl restart libvirtd.service
 
-#Enable nested virtualization
+# Enable nested virtualization
 sudo modprobe -r kvm_intel
 sudo modprobe kvm_intel nested=1
 sudo echo "options kvm-intel nested=1" | tee /etc/modprobe.d/kvm-intel.conf
 
-#Enable CUPS
+# Enable CUPS
 sudo systemctl enable cups.service
 sudo systemctl start cups.service
 
-#Cheat.sh
+# Cheat.sh
 curl https://cht.sh/:cht.sh | sudo tee /usr/local/bin/cht.sh
 sudo chmod +x /usr/local/bin/cht.sh
+
+# Other
+tldr --update
