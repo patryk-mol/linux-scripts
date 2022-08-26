@@ -89,7 +89,7 @@ fi
 
 cargo install paper-terminal
 
-sudo paru -Syu gzdoom \
+paru -Syu gzdoom \
  vscodium-bin \
  meteo-gtk \
  deadd-notification-center-bin \
