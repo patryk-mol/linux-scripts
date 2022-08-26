@@ -4,8 +4,15 @@ sudo pacman -Syu
 sudo pacman -R $(pacman -Qdtq)
 sudo pacman -Syu \
  xorg \
+ wayland \
+ xorg-xwayland \
+ plasma \
+ plasma-wayland-session \
+ qtile \
+ sddm \
  thunar \
  thunar-volman \
+ wget \
  evince \
  neofetch \
  alacritty \
@@ -28,7 +35,6 @@ sudo pacman -Syu \
  qemu \
  virt-manager \
  xdotool \
- qtile \
  alsa-utils \
  libpulse \
  lm_sensors \
@@ -53,19 +59,30 @@ sudo pacman -Syu \
  rust \
  neovim \
  bitwarden \
- xf86-video-intel \
- intel-media-driver \
  libva-utils \
  vdpauinfo \
  ttf-font-awesome \
  otf-font-awesome \
  docker \
+ docker-compose \
  tlp \
- xfce4-power-manager \
+ ranger \
+ pinta \
+ cmake \
+ cairo \
+ python-cairo \
+ libsass \
+ sassc \
+ fzf \
+ fd \
+ nodejs \
+ soundconverter
 
 # Laptop
 if [ $1 =z "laptop" ]; then
 sudo pacman -Syu \
+ xf86-video-intel \
+ intel-media-driver \
  networkmanager-l2tp \
  strongswan
 fi
@@ -77,7 +94,11 @@ sudo paru -Syu gzdoom \
  meteo-gtk \
  deadd-notification-center-bin \
  nerd-fonts-complete \
-
+ xidlehook \
+ mkinitcpio-firmware \
+ shntool \
+ mac \
+ sonixd-appimage
 
 # Change default shell
 chsh -s /usr/bin/zsh
@@ -106,3 +127,4 @@ sudo chmod +x /usr/local/bin/cht.sh
 
 # Other
 tldr --update
+
