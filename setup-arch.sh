@@ -79,7 +79,8 @@ sudo pacman -Syu \
  soundconverter \
  ulauncher \
  sublime-text-4 \
- spotify
+ spotify \
+ onlyoffice
 
 # Laptop
 if [ $1 =z "laptop" ]; then
