@@ -76,7 +76,10 @@ sudo pacman -Syu \
  fzf \
  fd \
  nodejs \
- soundconverter
+ soundconverter \
+ ulauncher \
+ sublime-text-4 \
+ spotify
 
 # Laptop
 if [ $1 =z "laptop" ]; then
