@@ -80,7 +80,8 @@ sudo pacman -Syu \
  ulauncher \
  sublime-text-4 \
  spotify \
- onlyoffice
+ onlyoffice \
+ x11-ssh-askpass
 
 # Laptop
 if [ $1 =z "laptop" ]; then
