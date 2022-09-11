@@ -133,6 +133,14 @@ sudo systemctl start cups.service
 curl https://cht.sh/:cht.sh | sudo tee /usr/local/bin/cht.sh
 sudo chmod +x /usr/local/bin/cht.sh
 
+# Setup NFS
+
+sudo echo "192.168.1.2:/mnt/user/books /mnt/nas/books nfs defaults,timeo=900,retrans=5,_netdev 0 0" | sudo tee -a /etc/fstab
+sudo echo "192.168.1.2:/mnt/user/general /mnt/nas/general nfs defaults,timeo=900,retrans=5,_netdev 0 0" | sudo tee -a /etc/fstab
+sudo echo "192.168.1.2:/mnt/user/movies /mnt/nas/movies nfs defaults,timeo=900,retrans=5,_netdev 0 0" | sudo tee -a /etc/fstab
+sudo echo "192.168.1.2:/mnt/user/music /mnt/nas/music nfs defaults,timeo=900,retrans=5,_netdev 0 0" | sudo tee -a /etc/fstab
+sudo echo "192.168.1.2:/mnt/user/tv /mnt/nas/tv nfs defaults,timeo=900,retrans=5,_netdev 0 0" | sudo tee -a /etc/fstab
+sudo echo "192.168.1.2:/mnt/disks/download /mnt/nas/download nfs defaults,timeo=900,retrans=5,_netdev 0 0" | sudo tee -a /etc/fstab
+
 # Other
 tldr --update
-
