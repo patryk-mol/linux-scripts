@@ -81,7 +81,10 @@ sudo pacman -Syu \
  sublime-text-4 \
  spotify \
  onlyoffice \
- x11-ssh-askpass
+ x11-ssh-askpass \
+ skype \
+ mediainfo-gui \
+ picard
 
 # Laptop
 if [ $1 =z "laptop" ]; then
