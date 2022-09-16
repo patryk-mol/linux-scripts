@@ -84,7 +84,8 @@ sudo pacman -Syu \
  x11-ssh-askpass \
  skype \
  mediainfo-gui \
- picard
+ picard \
+ appimagelauncher
 
 # Laptop
 if [ $1 =z "laptop" ]; then
