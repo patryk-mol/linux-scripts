@@ -87,13 +87,30 @@ sudo pacman -Syu \
  picard \
  appimagelauncher
 
-# Laptop
-if [ $1 =z "laptop" ]; then
-sudo pacman -Syu \
- xf86-video-intel \
- intel-media-driver \
- networkmanager-l2tp \
- strongswan
+# Laptop software
+printf "\n\n\nInstall laptop specific software?\n"
+echo "1 - Do not install"
+echo "2 - Intel based laptop"
+
+option=0
+
+while [ $option -lt 1 ] || [ $option -gt 2 ]; do
+    printf "Select [1-2]: "
+    read option
+    if [ $option -lt 1 ] || [ $option -gt 2 ]; then
+           echo "Invalid option"
+    fi
+done
+
+if [ $option -eq 2 ]; then
+    sudo pacman -Syu \
+     xf86-video-intel \
+     intel-media-driver
+fi
+if [ $option -ge 2 ]; then
+    sudo pacman -Syu \
+     networkmanager-l2tp \
+     strongswan
 fi
 
 cargo install paper-terminal
@@ -112,19 +129,32 @@ paru -Syu gzdoom \
 # Change default shell
 chsh -s /usr/bin/zsh
 
+# Enable NTP sync
+sudo systemctl enable systemd-timesyncd.service
+sudo systemctl start systemd-timesyncd.service
+
 # qemu setup
 sudo systemctl enable libvirtd.service
 sudo systemctl start libvirtd.service
-sudo echo "unix_sock_group = \"libvirt\"" >> /etc/libvirt/libvirtd.conf
-sudo echo "unix_sock_rw_perms = \"0770\"" >> /etc/libvirt/libvirtd.conf
+sudo echo "unix_sock_group = \"libvirt\"" | sudo tee /etc/libvirt/libvirtd.conf
+sudo echo "unix_sock_rw_perms = \"0770\"" | sudo tee /etc/libvirt/libvirtd.conf
 sudo usermod -a -G libvirt $(whoami)
 sudo newgrp libvirt
 sudo systemctl restart libvirtd.service
 
 # Enable nested virtualization
-sudo modprobe -r kvm_intel
-sudo modprobe kvm_intel nested=1
-sudo echo "options kvm-intel nested=1" | tee /etc/modprobe.d/kvm-intel.conf
+cpuAMD=$(lscpu | grep "AuthenticAMD")
+cpuIntel=$(lscpu | grep "GenuineIntel")
+
+if [[ -n $cpuAMD ]]; then
+    sudo modprobe -r kvm_amd
+    sudo modprobe kvm_amd nested=1
+    sudo echo "options kvm-amd nested=1" | sudo tee /etc/modprobe.d/kvm-amd.conf
+elif [[ -n $cpuIntel ]]; then
+    sudo modprobe -r kvm_intel
+    sudo modprobe kvm_intel nested=1
+    sudo echo "options kvm-intel nested=1" | sudo tee /etc/modprobe.d/kvm-intel.conf
+fi
 
 # Enable CUPS
 sudo systemctl enable cups.service
