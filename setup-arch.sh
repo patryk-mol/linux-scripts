@@ -3,6 +3,7 @@
 sudo pacman -Syu
 sudo pacman -R $(pacman -Qdtq)
 sudo pacman -Syu \
+ base-devel \
  xorg \
  wayland \
  xorg-xwayland \
@@ -12,6 +13,7 @@ sudo pacman -Syu \
  flatpak \
  thunar \
  thunar-volman \
+ kvantum \
  krename \
  krusader \
  wget \
@@ -80,7 +82,9 @@ sudo pacman -Syu \
  skype \
  mediainfo-gui \
  picard \
- appimagelauncher
+ appimagelauncher \
+ traceroute \
+ papirus-folders
 
 # Laptop software
 printf "\n\n\nInstall laptop specific software?\n"
