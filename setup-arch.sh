@@ -7,9 +7,8 @@ sudo pacman -Syu \
  xorg \
  wayland \
  xorg-xwayland \
- sddm \
- plasma-meta \
- plasma-wayland-session \
+ gnome \
+ syncthing \
  flatpak \
  thunar \
  thunar-volman \
