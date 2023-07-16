@@ -28,7 +28,7 @@ sudo pacman -Syu \
  filezilla \
  brave \
  firefox \
- mailspring \
+ thunderbird \
  vlc \
  exa \
  qemu \
