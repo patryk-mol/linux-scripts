@@ -8,27 +8,25 @@ sudo pacman -Syu \
  wayland \
  xorg-xwayland \
  gnome \
+ gnome-extra \
+ gnome-themes-extra \
+ geary \
+ networkmanager \
  syncthing \
  flatpak \
- thunar \
- thunar-volman \
- kvantum \
- krename \
- krusader \
  wget \
- evince \
  neofetch \
  alacritty \
  steam \
  mpv \
- audacious \
- audacious-plugins \
  mc \
  cmatrix \
  filezilla \
  brave \
  firefox \
- thunderbird \
+ cargo \
+ cups \
+ sof-firmware \
  vlc \
  exa \
  qemu \
@@ -44,10 +42,10 @@ sudo pacman -Syu \
  zsh \
  zsh-autosuggestions \
  zsh-syntax-highlighting \
+ starship \
  xterm \
  xdg-utils \
  xarchiver \
- simple-scan \
  bat \
  bottom \
  ripgrep \
@@ -73,8 +71,6 @@ sudo pacman -Syu \
  fd \
  nodejs \
  soundconverter \
- ulauncher \
- sublime-text-4 \
  spotify \
  onlyoffice \
  x11-ssh-askpass \
@@ -83,7 +79,14 @@ sudo pacman -Syu \
  picard \
  appimagelauncher \
  traceroute \
- papirus-folders
+ unrar \
+ openscad \
+ freecad \
+ prusa-slicer \
+ adwaita-qt5 \
+ adwaita-qt6 \
+ sane \
+ sane-airscan
 
 # Laptop software
 printf "\n\n\nInstall laptop specific software?\n"
@@ -113,14 +116,29 @@ fi
 
 cargo install paper-terminal
 
+cd
+git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
+cd
+rm -rf paru/
+
 paru -Syu gzdoom \
+ papirus-folders \
  vscodium-bin \
- nerd-fonts-complete \
- xidlehook \
+ nerd-fonts-meta \
  mkinitcpio-firmware \
+ brave-bin \
+ spotify \
+ onlyoffice-bin \
+ skypeforlinux-stable-bin \
+ appimagelauncher \
  shntool \
  mac \
- sonixd-appimage
+ sublime-text-4 \
+ brother-mfc-l2710dw \
+ brscan4 \
+ sonixd-bin
 
 flatpak install flathub com.github.Murmele.Gittyup
 
