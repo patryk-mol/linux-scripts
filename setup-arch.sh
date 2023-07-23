@@ -206,4 +206,4 @@ gsettings set org.gnome.shell.extensions.dash-to-dock disable-overview-on-startu
 tldr --update
 
 cd
-mkdir temp
+mkdir temp random
