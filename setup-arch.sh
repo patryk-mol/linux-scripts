@@ -10,7 +10,6 @@ sudo pacman -Syu \
  gnome \
  gnome-extra \
  gnome-themes-extra \
- geary \
  networkmanager \
  syncthing \
  flatpak \
@@ -67,6 +66,9 @@ sudo pacman -Syu \
  python-cairo \
  libsass \
  sassc \
+ dosfstools \
+ exfatprogs \
+ ntfs-3g \
  fzf \
  fd \
  nodejs \
@@ -116,6 +118,7 @@ fi
 
 cargo install paper-terminal
 
+# Install Paru
 cd
 git clone https://aur.archlinux.org/paru.git
 cd paru
@@ -124,6 +127,7 @@ cd
 rm -rf paru/
 
 paru -Syu gzdoom \
+ mailspring \
  papirus-folders \
  vscodium-bin \
  nerd-fonts-meta \
@@ -138,6 +142,9 @@ paru -Syu gzdoom \
  sublime-text-4 \
  brother-mfc-l2710dw \
  brscan4 \
+ gnome-shell-extension-dash-to-dock \
+ gnome-shell-extension-search-light-git \
+ gnome-shell-extension-appindicator-git \
  sonixd-bin
 
 flatpak install flathub com.github.Murmele.Gittyup
@@ -148,6 +155,10 @@ chsh -s /usr/bin/zsh
 # Enable NTP sync
 sudo systemctl enable systemd-timesyncd.service
 sudo systemctl start systemd-timesyncd.service
+
+# Enable Syncthing
+systemctl --user enable syncthing.service
+systemctl --user start syncthing.service
 
 # qemu setup
 sudo systemctl enable libvirtd.service
@@ -188,5 +199,11 @@ sudo echo "10.23.0.40:/mnt/user/music /mnt/nas/music nfs defaults,timeo=900,retr
 sudo echo "10.23.0.40:/mnt/user/tv /mnt/nas/tv nfs defaults,timeo=900,retrans=5,_netdev 0 0" | sudo tee -a /etc/fstab
 sudo echo "10.23.0.40:/mnt/disks/download /mnt/nas/download nfs defaults,timeo=900,retrans=5,_netdev 0 0" | sudo tee -a /etc/fstab
 
+# Gnome settings
+gsettings set org.gnome.shell.extensions.dash-to-dock disable-overview-on-startup true
+
 # Other
 tldr --update
+
+cd
+mkdir temp
