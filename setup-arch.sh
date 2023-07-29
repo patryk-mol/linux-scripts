@@ -180,6 +180,22 @@ elif [[ -n $cpuIntel ]]; then
     sudo echo "options kvm-intel nested=1" | sudo tee /etc/modprobe.d/kvm-intel.conf
 fi
 
+# nVidia GPU
+nvidiaGPU=$(lspci | grep "GeForce")
+
+if [[ -n $nvidiaGPU ]]; then
+    sudo pacman -Syu nvidia-settings
+fi
+
+# GRUB settings
+grub=$(grub-install -V)
+
+if [[ -n $grub ]]; then
+    sudo pacman -Syu os-prober
+    sudo nano /etc/default/grub
+    sudo grub-mkconfig -o /boot/grub/grub.cfg
+fi
+
 # Enable CUPS
 sudo systemctl enable cups.service
 sudo systemctl start cups.service
