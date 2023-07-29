@@ -1,5 +1,7 @@
 #!/bin/sh
 
+sudo nano /etc/pacman.conf
+
 sudo pacman -Syu
 sudo pacman -R $(pacman -Qdtq)
 sudo pacman -Syu \
@@ -21,7 +23,6 @@ sudo pacman -Syu \
  mc \
  cmatrix \
  filezilla \
- brave \
  firefox \
  cargo \
  cups \
@@ -73,13 +74,9 @@ sudo pacman -Syu \
  fd \
  nodejs \
  soundconverter \
- spotify \
- onlyoffice \
  x11-ssh-askpass \
- skype \
  mediainfo-gui \
  picard \
- appimagelauncher \
  traceroute \
  unrar \
  openscad \
