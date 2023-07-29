@@ -185,6 +185,7 @@ nvidiaGPU=$(lspci | grep "GeForce")
 
 if [[ -n $nvidiaGPU ]]; then
     sudo pacman -Syu nvidia-settings
+    sudo nvidia-settings
 fi
 
 # GRUB settings
