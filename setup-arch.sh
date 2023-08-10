@@ -85,7 +85,9 @@ sudo pacman -Syu \
  adwaita-qt5 \
  adwaita-qt6 \
  sane \
- sane-airscan
+ sane-airscan \
+ nfs-tools \
+ net-tools
 
 # Laptop software
 printf "\n\n\nInstall laptop specific software?\n"
