@@ -86,7 +86,7 @@ sudo pacman -Syu \
  adwaita-qt6 \
  sane \
  sane-airscan \
- nfs-tools \
+ nfs-utils \
  net-tools
 
 # Laptop software
