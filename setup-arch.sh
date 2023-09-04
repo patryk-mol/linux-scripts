@@ -76,6 +76,7 @@ sudo pacman -Syu \
  soundconverter \
  x11-ssh-askpass \
  mediainfo-gui \
+ mkvtoolnix-gui \
  picard \
  traceroute \
  unrar \
