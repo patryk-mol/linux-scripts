@@ -88,7 +88,8 @@ sudo pacman -Syu \
  sane \
  sane-airscan \
  nfs-utils \
- net-tools
+ net-tools \
+ libreoffice
 
 # Laptop software
 printf "\n\n\nInstall laptop specific software?\n"
@@ -112,8 +113,7 @@ if [ $option -eq 2 ]; then
 fi
 if [ $option -ge 2 ]; then
     sudo pacman -Syu \
-     networkmanager-l2tp \
-     strongswan
+     wireguard-tools
 fi
 
 cargo install paper-terminal
